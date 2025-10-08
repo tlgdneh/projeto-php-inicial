@@ -1,0 +1,434 @@
+/* Sistema de Inscrição FIB - Estilo Principal */
+/* Cores: Branco e Roxo conforme solicitado */
+
+:root {
+    --primary-purple: #6f42c1;
+    --dark-purple: #5a2d91;
+    --light-purple: #8a63d2;
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --dark-gray: #212529;
+    --success-green: #28a745;
+    --info-blue: #17a2b8;
+    --warning-yellow: #ffc107;
+    --danger-red: #dc3545;
+}
+
+/* Reset e configurações gerais */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-gray);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Classes utilitárias de cor */
+.bg-purple {
+    background-color: var(--primary-purple) !important;
+}
+
+.bg-dark-purple {
+    background-color: var(--dark-purple) !important;
+}
+
+.text-purple {
+    color: var(--primary-purple) !important;
+}
+
+.text-white {
+    color: var(--white) !important;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid var(--primary-purple);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* Progress Indicator */
+.progress-container {
+    background: var(--white);
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.step.active {
+    background-color: var(--primary-purple);
+    color: var(--white);
+    box-shadow: 0 0 0 4px rgba(111, 66, 193, 0.2);
+}
+
+.step.completed {
+    background-color: var(--success-green);
+    color: var(--white);
+}
+
+.step.inactive {
+    background-color: #e9ecef;
+    color: #6c757d;
+}
+
+.step-line {
+    width: 50px;
+    height: 2px;
+    background-color: #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.step-line.completed {
+    background-color: var(--success-green);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+    color: var(--white);
+    padding: 100px 0;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.1;
+}
+
+/* Cards e Containers */
+.form-container, .summary-card {
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(111, 66, 193, 0.1);
+    padding: 40px;
+    margin: 30px 0;
+    border: 1px solid rgba(111, 66, 193, 0.1);
+}
+
+.card-custom {
+    transition: transform 0.3s ease;
+    border: none;
+    box-shadow: 0 5px 15px rgba(111, 66, 193, 0.08);
+    border-radius: 15px;
+}
+
+.card-custom:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(111, 66, 193, 0.15);
+}
+
+/* Botões */
+.btn-purple {
+    background-color: var(--primary-purple);
+    color: var(--white);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(111, 66, 193, 0.3);
+}
+
+.btn-purple:hover {
+    background-color: var(--dark-purple);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(111, 66, 193, 0.4);
+}
+
+.btn-purple:focus {
+    box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.5);
+}
+
+/* Formulários */
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--dark-gray);
+    margin-bottom: 8px;
+}
+
+/* Step Cards */
+.step-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(111, 66, 193, 0.1);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(111, 66, 193, 0.2);
+    border-color: var(--primary-purple);
+}
+
+.step-number {
+    background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+    color: var(--white);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 15px rgba(111, 66, 193, 0.3);
+}
+
+/* Payment Cards */
+.payment-card {
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.payment-card:hover {
+    border-color: var(--primary-purple);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(111, 66, 193, 0.1);
+}
+
+.payment-card.selected {
+    border-color: var(--primary-purple);
+    background-color: rgba(111, 66, 193, 0.05);
+    box-shadow: 0 0 0 2px rgba(111, 66, 193, 0.2);
+}
+
+/* Price Card */
+.price-card {
+    background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+    color: var(--white);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(111, 66, 193, 0.3);
+}
+
+/* Success Container */
+.success-container {
+    background: linear-gradient(135deg, var(--success-green), #20c997);
+    color: var(--white);
+    border-radius: 15px;
+    padding: 50px;
+    text-align: center;
+    margin: 30px 0;
+    box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
+}
+
+.protocol-card {
+    background: var(--white);
+    color: var(--primary-purple);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Titles */
+.section-title {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-purple);
+    border-radius: 2px;
+}
+
+/* Summary Sections */
+.summary-section {
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.summary-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Alerts */
+.alert-custom {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Payment Details */
+.payment-details {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--light-gray);
+    border-radius: 10px;
+    border: 1px solid rgba(111, 66, 193, 0.1);
+}
+
+.payment-details.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-gray);
+    color: var(--white);
+    padding: 50px 0 20px;
+    margin-top: 50px;
+}
+
+footer a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--light-purple);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 0;
+    }
+    
+    .form-container, .summary-card {
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .step-indicator {
+        flex-wrap: wrap;
+    }
+    
+    .step {
+        margin: 5px;
+    }
+    
+    .step-line {
+        width: 30px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar, .btn, .print-button {
+        display: none !important;
+    }
+    
+    .success-container {
+        background: var(--white) !important;
+        color: var(--dark-gray) !important;
+        border: 2px solid var(--primary-purple);
+    }
+    
+    .protocol-card {
+        border: 2px solid var(--primary-purple);
+    }
+}
+
+/* Animações */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.btn-purple:active {
+    animation: pulse 0.2s ease;
+}
+
+/* Accessibility */
+.form-control:focus,
+.form-select:focus,
+.btn:focus {
+    outline: 2px solid var(--primary-purple);
+    outline-offset: 2px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-purple);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-purple);
+}
+
